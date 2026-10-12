@@ -1,0 +1,230 @@
+/* Section Container & Subtle Background Grid */
+.hero {
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background grid pattern */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* Two-Column Flexbox Layout */
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  z-index: 1;
+}
+
+/* --- Left Column --- */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.6rem;
+  color: #0099ff;
+  background-color: rgba(0, 153, 255, 0.08);
+  border: 1px solid rgba(0, 153, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  background-color: #0099ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #0099ff;
+}
+
+.hero-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.hero-title .accent {
+  color: #0099ff;
+  text-shadow: 0 0 12px rgba(0, 153, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.65rem;
+  line-height: 1.8;
+  color: #a0a5b5;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.7rem;
+  padding: 14px 24px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #0099ff;
+  color: #000000;
+  border: 2px solid #0099ff;
+  box-shadow: 0 0 15px rgba(0, 153, 255, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: #33adff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0, 153, 255, 0.7);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #222222;
+}
+
+.btn-secondary:hover {
+  border-color: #0099ff;
+  color: #0099ff;
+  transform: translateY(-2px);
+}
+
+/* --- Right Column: Arcade Box --- */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arcade-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #0a0a0a;
+  border: 2px solid #1f1f1f;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 153, 255, 0.15);
+}
+
+.arcade-header {
+  background-color: #141414;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.55rem;
+  color: #666666;
+  border-bottom: 1px solid #222222;
+}
+
+.arcade-header .status-tag {
+  color: #0099ff;
+}
+
+.arcade-screen {
+  padding: 20px;
+}
+
+.screen-content {
+  background-color: #030303;
+  border: 1px dashed #2a2a2a;
+  border-radius: 6px;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.game-badge {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.5rem;
+  color: #0099ff;
+  background-color: rgba(0, 153, 255, 0.1);
+  padding: 4px 8px;
+}
+
+.game-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.game-desc {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.55rem;
+  color: #777777;
+}
+
+.press-start {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.65rem;
+  color: #0099ff;
+  margin-top: 12px;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-visual {
+    justify-content: center;
+  }
+}
